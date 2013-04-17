@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+	<head>
+
+		<title>SOLID y TDD</title>
+
+		<meta name="description" content="Slides para explicar SOLID y TDD">
+		<meta name="author" content="Iván Tomás">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Metodologías Ágiles</h1>
+					<h3>Parte organizativa: Agilidad y SCRUM</h3>
+					<p>
+						Una presentación de <b>Iván Tomás</b>
+					</p>
+					<aside class="notes">
+						Presentación para explicar los conceptos detrás de las metodologías ágiles, y porqué son indispensables para generar software de calidad y mantenible, esta vez enfocado a la parte de organización necesaria
+					</aside>
+				</section>
+				<section>
+					<h2>¿Qué es el agilismo?</h2>
+					<aside class="notes">
+						El agilismo consiste en adaptarse lo más rápida y eficientemente posible a las peticiones de nuestros clientes, para dar el mejor servicio posible
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h2>Principios del agilismo</h2>
+						<aside class="notes">
+							Para entender qué es realmente, hay que estudiar con detalle el verdadero significado de los 4 principios del desarrollo ágil de software
+						</aside>
+					</section>
+					<section>
+						<h2>Individuos e interacciones</h2>
+						sobre
+						<h3>procesos y herramientas</h3>
+						<aside class="notes">
+							Las personas de los equipos de trabajo y cómo se relacionan entre ellas es más importante que los procesos y herramientas que se utilizan en la empresa. Con buena comunicación, buen trato y buen sentimiento de equipo, la productividad aumenta.
+						</aside>
+					</section>
+					<section>
+						<h2>Software funcionando</h2>
+						sobre
+						<h3>documentación extensiva</h3>
+						<aside class="notes">
+							La principal medida de progreso en el desarrollo ágil de software es "software funcionando". Se entiende por software funcionando cuando el producto cumple las expectativas que tenía el cliente. Lo que realmente desea el cliente es un software que le resuelva sus problemas, y aunque la documentación es necesaria, lo lógico es que pase a un segundo plano. 
+						</aside>
+					</section>
+					<section>
+						<h2>Colaboración con el cliente</h2>
+						sobre
+						<h3>negociación contractual</h3>
+						<aside class="notes">
+							En las metodologías ágiles, por el beneficio de todas las partes implicadas, se considera que es mejor establecer unas reglas de colaboración cliente-proveedor y llevarlas a cabo que no atarse con un contrato extremadamente vinculante, puesto que al final acaba perjudicando a ambas partes.
+						</aside>
+					</section>
+					<section>
+						<h2>Respuesta ante el cambio</h2>
+						sobre
+						<h3>seguir un plan</h3>
+						<aside class="notes">
+							En las metodologías ágiles, por definición, los cambios son bienvenidos, incluso en estados avanzados del proyecto. Por eso es tan necesario seguir una buena ingeniería de software, para que estos cambios se puedan llevar a cabo.
+						</aside>
+					</section>
+				</section>
+				<section>
+					<h2>¿Porqué es necesario?</h2>
+					<div class="image">
+						<img height="550" src="img/cuadrantes.jpg">
+					</div>
+					<aside class="notes">
+						<p>
+							En la figura está representado un gráfico extraído del ensayo "Allegro ma non troppo" del economista Carlo M. Cipolla, en el que relata lo que define como "el cuadrante de la estupidez". Los dos ejes serían el beneficio (si está en positivo) o la pérdida (si está en negativo) que obtenemos al interactuar con otra persona. En este caso, sería aplicable a la relación cliente-proveedor, si tomamos el cliente como el eje y y el proveedor (nosotros) el eje x. 
+						</p>
+						<p>
+							Los cuatro cuadrantes que quedan son: 
+							<ul>
+								<li>Si nosotros ganamos y el cliente pierde, estamos siendo malvados (representado con una M).</li>
+								<li>Si nosotros perdemos y el cliente gana, estamos siendo incautos (representado con una H)</li>
+								<li>Si nosotros ganamos y el cliente gana, estamos siendo inteligentes (representado con una I)</li>
+								<li>Si nosotros perdemos y el cliente pierde, estamos siendo estúpidos (representado con una E)</li>
+							</ul>
+							Con lo que esto queremos decir es que, habitualmente, los desarrollos de software se producen de tal manera que siempre hay alguien que sale perdiendo: o el cliente no obtiene lo que esperaba, o lo obtiene fuera de plazo, o con funcionalidades que no necesita realmente, etc. o bien nosotros tenemos que trabajar gratis, desmotivar al equipo con broncas, etc. con el coste de pérdida de productividad que esto significa a largo plazo. De hecho, la mayoría de proyectos parece que se mueven en el cuadrante de la E, ya que ni cliente ni proveedor acaban contentos con el trato, lo cual no deja de ser absurdo.
+						</p>
+						<p>
+							Las metodologías ágiles, lo que proponen es movernos paulatinamente (puesto que no es una transformación de un día) hacia el cuadrante de la inteligencia, donde todos podemos ganar con el trato.
+						</p>
+					</aside>
+				</section>
+				<section>
+					<h2>SCRUM</h2>
+					<div class="image">
+						<img height="550" src="img/scrum.jpg">
+					</div>
+					<aside class="notes">
+						<p>
+							SCRUM es quizá la metodología ágil más conocida hoy en día.
+						</p>
+						<p>
+							El nombre proviene del scrum de rugby, donde todo el equipo trabaja empujando en la misma dirección para conseguir el objetivo (en este caso, obtener la pelota)
+						</p>
+						<p>
+							El objetivo en el caso de SCRUM es darle al cliente software con unos períodos de entrega cortos y predecibles, de manera que pueda obtener el retorno de inversión de la manera más rápida posible.
+						</p>
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h2>Actores</h2>
+						<aside class="notes">
+							Ahora se hablará de los diferentes papeles que hay en una organización que usa SCRUM
+						</aside>
+					</section>
+					<section>
+						<h2>Product owner</h2>
+						<div class="image">
+							<img height="550" src="img/productowner.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								El product owner es el que tiene el conocimiento de negocio sobre lo que realmente necesita el cliente. Este, idealmente, puede ser el mismo cliente o alguien en quien el cliente confíe plenamente y delegue la responsabilidad, como un manager de negocio o un comercial.
+							</p>
+							<p>
+								Su tarea es de priorizar y definir con el suficiente detalle el objetivo de cada una de las tareas que deben llevarse a cabo. Tiene que tener el suficiente conocimiento como para saber qué aporta más valor añadido en cada iteración.
+							</p>
+							<p>
+								NO es su objetivo mandar sobre qué hay que hacer primero, asignar tareas a personas, aparecer con tareas "extremadamente importantes" ni dirigir en ningún modo al equipo. Su tarea será de observador pasivo excepto en los puntos que se especifique que debe intervenir y ayudará al equipo si necesita aclaraciones sobre cualquiera de los puntos a desarrollar.
+							</p>
+
+						</aside>
+					</section>
+					<section>
+						<h2>Team member</h2>
+						<div class="image">
+							<img height="550" src="img/team.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								El equipo de desarrollo tiene que ser un equipo multidisciplinar, de entre 5 y 9 personas, y ha de contener todos los perfiles necesarios para completar una tarea dada. Esto incluye a ingenieros de test, desarrolladores, diseñadores, redactores técnicos y cualquier otro perfil.
+							</p>
+							<p>
+								No obstante, en este caso lo más importante es que todo el mundo pueda ayudar en cualquier tarea, es decir, aunque seguro que hay gente que es más especialista en unos puntos del desarrollo del producto que en otros, todo el mundo debe estar dispuesto a ayudar en la medida que le sea posible y en cualquier tipo de tarea. Para desarrollar este aprendizaje se recomiendan prácticas como desarrollo por parejas, de manera que el conocimiento que tiene el equipo se va homogeneizando, obteniendo mucha más versatilidad y aumentando la productividad en el futuro.
+							</p>
+							<p>
+								Es tarea del equipo estimar las tareas que ha pedido que hay que hacer el product owner y autoorganizarse para intentar cumplir el máximo posible de tareas en cada sprint, pero siempre manteniendo un estándar de calidad que le permita adaptarse de la manera necesaria a los inevitables cambios. También es responsabilidad del equipo pedir aclaraciones si las necesita, y pedir ayuda al Scrum Master si considera que necesita apoyo en algún área.
+							</p>
+							<p>
+								Para que el equipo realmente consiga su máximo potencial se ha de mantener estable en el tiempo, y ha de participar de manera activa en las retrospectivas. Ha de ser proactivo en la toma de decisiones, y ha de buscar la excelencia técnica, el aprendizaje continuo y el servicio a las necesidades del cliente.
+							</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Scrum master</h2>
+						<div class="image">
+							<img height="550" src="img/scrummaster.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								El rol de Scrum Master es de facilitador y sirviente del equipo. Su tarea principal es ocuparse de que el equipo no sufre interrupciones durante un sprint, para evitar el "context switching", que es muy costoso a nivel de productividad. También es necesario que se emplee en eliminar los impedimentos que pueda tener el equipo durante el desarrollo del producto.
+							</p>
+							<p>
+								Idealmente, debería haber un Scrum Master por equipo, al menos al principio. Puede formar parte del equipo de desarrollo, aunque no se recomienda. Más adelante, un mismo Scrum Master puede ocuparse de varios equipos a la vez.
+							</p>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<h2>Ciclo de proyecto</h2>
+					<div class="image">
+						<img height="550" src="img/scrumcycle.png">
+					</div>
+					<aside class="notes">
+						A continuación se detallarán todos los pasos que ha de seguir un ciclo de trabajo durante un proyecto realizado con Scrum
+					</aside>
+				</section>
+				<section>
+					<h2>Product backlog</h2>
+					<div class="image">
+						<img height="550" src="img/backlog.jpg">
+					</div>
+					<aside class="notes">
+						<p>
+							El product backlog es una colección de todas las funcionalidades que se han negociado con el cliente que se desarrollarían en el producto.
+						</p>
+						<p>
+							Aquí han de estar definidas de manera más o menos clara todas las funcionalidades, y han de ser estimadas por el equipo para, junto con la velocidad estimada de sprint, poder saber hasta donde podríamos llegar con los recursos disponibles.
+						</p>
+					</aside>
+				</section>
+				<section>
+					<section>
+						<h2>Inicio de sprint</h2>
+						<div class="image">
+							<img height="550" src="img/sprint.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								Una vez sabemos el producto que queremos desarrollar, debemos organizar las entregas en sprints. En cada sprint es necesario tener en cuenta que la dedicación del equipo debería ser total a este proyecto.
+							</p>
+							<p>
+								La excepción que se recomienda es dedicar un tiempo para resolver las incidencias que este mismo equipo haya causado, aún a perjuicio del desarrollo actual, para concienciar al equipo que ha de desarrollar el código con el máximo de calidad posible como objetivo.
+							</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Historias de usuario</h2>
+						<div class="image">
+							<img height="550" src="img/userstory.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								Cada requisito del proyecto debe quedar especificado en una historia de usuario.
+							</p>
+							<p>
+								Una historia de usuario debe cumplir INVEST:
+								<ul>
+									<li>Independent - cada historia de usuario debe ser independiente de las demás</li>
+									<li>Negotiable - cada historia de usuario debe poder ser negociada con el cliente</li>
+									<li>Valuable - cada historia de usuario debe suponer un ítem que le dé un valor añadido al cliente</li>
+									<li>Estimable - cada historia de usuario debe poder ser estimada en coste</li>
+									<li>Small - una historia de usuario debe ser lo suficientemente pequeña como para que se pueda planificar con una cierta seguridad</li>
+									<li>Testable - una historia de usuario debe tener una definición de hecho y ésta debe ser demostrable</li>
+								</ul>
+							</p>
+							<p>
+								Además, una historia de usuario debe ser cross-functional, comprendiendo tanto el análisis como el diseño, la programación, la documentación, los tests...
+							</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Estimación de coste</h2>
+						<div class="image">
+							<img height="550" src="img/planningpoker.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								Una vez tenemos bien definidas las historias de usuario, pasamos a estimarlas.
+							</p>
+							<p>
+								La estimación de cada historia de usuario es mejor realizarla con conceptos abstractos. Por ello habitualmente se utilizan herramientas como el planning poker para puntuar las historias de usuario de manera relativa de unas con otras. El número de historias de usuario que se pueden realizar en un sprint vendrá dado al final por la compenetración del equipo, la experiencia y los datos de cantidad de software funcionando que se ha desarrollado en iteraciones anteriores.
+							</p>
+							<p>
+								A la hora de estimar, es conveniente triangular historias para ver si las estimaciones son adecuadas para cada caso, y tener en cuenta que son eso, estimaciones y aproximaciones y que no se deben tomar como "pactos de sangre"
+							</p>
+						</aside>
+					</section>
+					<section>
+						<h2>Priorización</h2>
+						<div class="image">
+							<img height="550" src="img/priority.jpg">
+						</div>
+						<aside class="notes">
+							<p>
+								Teniendo en cuenta los datos de las estimaciones dadas, el product owner debe decidir la prioridad que se le da a cada historia de usuario, teniendo en cuenta que el equipo intentará, siempre que sea posible, finalizar las historias de usuario con más valor primero, de manera que se maximiza el retorno de inversión del cliente.
+							</p>
+							<p>
+								No obstante, la prioridad siempre debe ser software funcionando, es decir, si el equipo calcula que si empieza una cierta tarea a medio sprint quedará inacabada, elegirá otra de menor valor pero que sí pueda finalizar dentro del sprint.
+							</p>
+						</aside>
+					</section>
+
+				</section>
+
+			</div>
+		</div>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+
+</html>
