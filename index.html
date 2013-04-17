@@ -198,8 +198,85 @@
 
 							Además, un test, unitario o no, ha de ser idempotente. Esto quiere decir que un test se tiene que poder repetir las veces que sea necesario y siempre debería devolver el mismo resultado.Habitualmente esto implica utilizar bases de datos en memoria, usar mock objects para elementos que puedan darnos resultados aleatorios, etc. Si necesitamos probar algo que genera resultados aleatorios, lo mejor que podemos hacer es asegurar que los resultados estén dentro de un rango de aceptación, y preparar el test para que se ejecute un número elevado de veces seguidas.
 
-							En cuanto a la legibilidad, 
+							En cuanto a la legibilidad, es importante recordar la máxima que "El código se lee más veces que las que se escribe". Esto aplica a todo lo que se desarrolle, pero es especialmente importante tenerlo en cuenta para los tests, puesto que los tests nos tienen que servir de documentación técnica actualizada de como funciona realmente nuestro sistema. Para conseguir legibilidad, se recomienda seguir el patrón given-when-then propio de Behaviour-Driven Development, y utilizar librerías como Hamcrest para facilitar la lectura de las condiciones.
 						</aside>
+					</section>
+					<section>
+						<h2>Mira como falla</h2>
+						<div class="image">
+							<img src="img/safetynet_fail.jpg">
+						</div>
+						<aside class="notes">
+							Es importante no saltarse este paso. Hay que comprobar que el test falla por lo que esperamos que falle. Cuando no hay mucha funcionalidad escrita, lo más probable es que siempre falle por falta de implementación, pero conforme la aplicación va teniendo más y más funcionalidades, es necesario saber que, por ejemplo, no estamos realizando un test de algo que ya está implementado (el test no falla), o que no hay alguna incidencia que no habíamos detectado (el test falla por un error que no es el esperado)
+						</aside>
+					</section>
+					<section>
+						<h2>Vuélvelo verde</h2>
+						<div class="image">
+							<img src="img/safetynet_test.jpg">
+						</div>
+						<aside class="notes">
+							En este punto lo que hacemos es escribir el código justo y necesario para que el test pase (se vuelva verde). No escribimos código de más porque eso iría contra nuestros principios de agilidad, no se escribe código "por si acaso", todo el código que se escriba ha de ser útil de manera inmediata y aportar valor añadido para el cliente.
+
+							Aún no es importante que el código sea perfecto: en este paso lo importante es proponer una solución y comprobar que funciona y es viable.
+						</aside>
+					</section>
+					<section>
+						<h2>Refactoriza</h2>
+						<div class="image">
+							<img src="img/safetynet_apuntalada.jpg">
+						</div>
+						<aside class="notes">
+							Ahora toca refactorizar el código, eliminando duplicados, mejorando la legibilidad y puliendo todos los puntos que hubiéramos puesto en el apartado anterior. En esencia, mejoramos la calidad del código para que los tests futuros (y por tanto, los desarrollos futuros) sean más fáciles y requieran de menos esfuerzo y tiempo.
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Otros principios de buenas prácticas</h1>
+						<ul>
+							<li class="fragment">YAGNI</li>
+							<li class="fragment">KISS</li>
+							<li class="fragment">DRY</li>
+						</ul>
+						<aside class="notes">
+							Hay otros principios de buenas prácticas de desarrollo de software que, de manera similar a SOLID, son aplicables en todos los entornos.
+						</aside>
+					</section>
+					<section>
+						<h2>YAGNI</h2>
+						<h4>You Ain't Gonna Need It</h4>
+						<div class="image">
+							<img src="img/yagni.jpg">
+						</div>
+						<aside class="notes">
+							You Ain't Gonna Need It es un punto importante, especialmente si se desea desarrollar el software de manera ágil. Este principio indica que sólamente se debe hacer el software que se va a necesitar. Si se han utilizado las buenas prácticas de SOLID y TDD, no es necesario tener en cuenta los "por si acasos", puesto que solo redundan en código en el que se pierde tiempo desarrollando y que no aporta un valor añadido al cliente, con lo cual es una situación de pérdida para los dos bandos.
+						</aside>
+					</section>
+					<section>
+						<h2>KISS</h2>
+						<h4>Keep It Simple, Stupid!</h4>
+						<div class="image">
+							<img src="img/simple.jpg">
+						</div>
+						<aside class="notes">
+							Como el código se lee más veces de las que se escribe, es especialmente importante adoptar la solución más simple posible. Simple no significa fácil, si no la que es más cómoda de leer para el compañero (que puede ser tu yo del futuro) que venga a leer este código para ampliarlo, corregir alguna incidencia o simplemente coger inspiración para otro proyecto.
+
+							En la imagen se ve que, si los marcianos hubieran atacado en línea recta vertical, lo tendrían mucho más fácil para vencer.
+						</aside>
+					</section>
+					<section>
+						<h2>DRY</h2>
+						<h4>Don't Repeat Yourself</h4>
+						<div class="image">
+							<img src="img/repetition.gif">
+						</div>
+						<aside class="notes">
+							El resumen de este principio es que el código debería estar una única vez en todo el desarrollo. A veces, si hay dos partes que son iguales, hay la tentación de copiar y pegar el código, lo que acaba resultando en problemas puesto que, ¿qué sucede si se detecta un bug o que se ha de ampliar una funcionalidad? Siempre estamos a tiempo de separar el código o parametrizarlo si finalmente algo que pensábamos que podíamos reaprovechar no es tan reaprovechable, pero hacer el paso inverso de corregir un error en un sitio y tener que buscar las otras 23 coincidencias implica gastar mucho tiempo en algo que debería ser inmediato.
+
+							Por ejemplo, si hemos copiado y pegado el dibujo de la imagen, ¿qué pasa cuando queremos que todos sean lilas? Deberíamos ir uno por uno. En cambio, si el color fuera un parámetro, simplemente cambiando la llamada al método que nos proporciona el dibujo tendríamos suficiente
+						</aside>
+					</section>
 				</section>
 
 			</div>
