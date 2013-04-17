@@ -157,9 +157,50 @@
 						</aside>
 					</section>
 				</section>
+				<section>
+					<section>
+						<h1>Test-Driven Development</h1>
+						<h3>Robustez</h3>
+						<ol>
+							<li class="fragment">Escribe un test</li>
+							<li class="fragment">Mira como <span class="fragment highlight-red">falla</span></li>
+							<li class="fragment">Vuélvelo <span class="fragment highlight-green">verde</span></li>
+							<li class="fragment">Refactoriza</li>
+						</ol>
+						<aside class="notes">
+							Test-Driven Development es una metodología de desarrollo de software que facilita aumentar la robustez del código, puesto que facilita el diseño de código de calidad y reduce el impacto de los errores que se detectan. Además, ayuda a que el código sea mantenible y se pueda adaptar mucho más rápido a las peticiones del cliente.
 
+							TDD permite comprobar que una funcionalidad está actuando como se espera, y permite reducir el tiempo necesario para encontrar bugs.
+						</aside>
+					</section>
+					<section>
+						<h2>Escribe un test</h2>
+						<div class="image">
+							<img src="img/safetynet.jpg">
+						</div>
+						<aside class="notes">
+							Programar sin escribir tests es como pasar por la cuerda floja sin red de seguridad. Si resulta que nos equivocamos al dar un paso, corremos un riesgo mucho más serio de encontrarnos que las consecuencias que se producen a partir de este error son mucho más severas de lo que esperábamos.
 
+							Al escribir el test antes del código, lo que conseguimos es obligarnos a pensar en la funcionalidad que queremos probar, de manera que a veces detectamos imperfecciones en cómo habíamos planteado el código incluso antes de haber escrito una línea.
+						</aside>
+					</section>
+					<section>
+						<h2>Un buen test</h2>
+						<ul>
+							<li class="fragment" data-fragment-index="1">Probar <span class="fragment highlight-blue" data-fragment-index="4">una sola funcionalidad</span></li>
+							<li class="fragment" data-fragment-index="2">Idempotente</li>
+							<li class="fragment" data-fragment-index="3">Legible</li>
+						</ul>
+						<aside class="notes">
+							No vale escribir cualquier test para hacer TDD, los tests tienen que ser adecuados al resto de buenas prácticas que se quieren llevar a cabo. 
 
+							Cada test tiene que probar una y sólo una funcionalidad. Si no se puede escribir un test de manera que se pruebe una única funcionalidad, suele ser síntoma de que quizá hay que separar mejor lo que se está haciendo, porque el código está muy acoplado. En el caso de los tests unitarios, además, las funcionalidades que pertocan a otras clases se sustituyen por "mock objects", que no son más que objetos a los que se les puede preprogramar unos resultados esperados, de manera que el resto de piezas que no se quieren probar en este test se simulan. Esto también permite paralelizar trabajo, puesto que es posible desarrollar en base a mock objects, como si el código que está pendiente de realizar por la otra persona estuviera ya implementado. 
+
+							Además, un test, unitario o no, ha de ser idempotente. Esto quiere decir que un test se tiene que poder repetir las veces que sea necesario y siempre debería devolver el mismo resultado.Habitualmente esto implica utilizar bases de datos en memoria, usar mock objects para elementos que puedan darnos resultados aleatorios, etc. Si necesitamos probar algo que genera resultados aleatorios, lo mejor que podemos hacer es asegurar que los resultados estén dentro de un rango de aceptación, y preparar el test para que se ejecute un número elevado de veces seguidas.
+
+							En cuanto a la legibilidad, 
+						</aside>
+				</section>
 
 			</div>
 		</div>
