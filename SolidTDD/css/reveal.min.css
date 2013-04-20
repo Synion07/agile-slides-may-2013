@@ -12,3 +12,32 @@
  .third{
 	width: 33%;
 }
+.photo550{
+	height:550px !important; 
+	width: 100% !important;
+	background-size: auto 100% !important;
+}
+.car-photo{
+	background-image: url('../img/car_road.jpg') !important;
+	background-position-x: -139px !important;
+}
+.motorcycle-photo{
+	background-image: url('../img/motorcycle_road.jpg') !important;
+	background-position-x: -388px !important;
+}
+.truck-photo{
+	background-image: url('../img/truck_road.jpg') !important;
+	background-position-x: -147px !important;
+}
+.alonso-photo{
+	background-image: url('../img/alonso.jpg') !important;
+	background-position-x: -147px !important;	
+}
+.hamilton-photo{
+	background-image: url('../img/hamilton.jpg') !important;
+	background-position-x: -94px !important;	
+}
+.vettel-photo{
+	background-image: url('../img/vettel.jpg') !important;
+	background-position-x: -277px !important;	
+}
