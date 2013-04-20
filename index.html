@@ -59,7 +59,9 @@
 							<img height="550" src="img/clint.jpg">
 						</div>
 						<aside class="notes">
-							El estilo habitual de desarrollo suele ser un "todo vale", también conocido como "cowboy coding", que consiste habitualmente en hacer las cosas lo más rápido posible teniendo en cuenta plazos, cuando realmente lo que se hace es añadir lentitud al hacer código de baja calidad que necesita más tiempo para ser probado y donde se pierde más tiempo en resolver incidencias
+							El estilo habitual de desarrollo suele ser un "todo vale", también conocido como "cowboy coding", que consiste habitualmente en hacer las cosas lo más rápido posible para llegar a plazo, cuando realmente lo que se hace es añadir lentitud al hacer código de baja calidad que necesita más tiempo para ser probado y donde se pierde más tiempo en resolver incidencias. 
+
+							Adicionalmente, presentar código de baja calidad hace que el cliente te pueda percibir como poco profesional.
 						</aside>
 					</section>
 					<section>
@@ -68,7 +70,9 @@
 							<img height="550" src="img/time_bomb.jpg">
 						</div>
 						<aside class="notes">
-							Lo que suele suceder al proceder a desarrollar el código de esta manera es generar una bomba de relojería, que explotará en el momento en que se detecten bugs o el cliente pida cambios que no estaban previstos
+							Lo que suele suceder al proceder a desarrollar el código de esta manera es que se genera una bomba de relojería, que explotará en el momento en que se detecten bugs o el cliente pida cambios que no estaban previstos, puesto que afrontar estos cambios es costosísimo desde un punto de vista de implementación.
+
+							Al final, ni el cliente ni el proveedor acaban contentos con la relación.
 						</aside>
 					</section>
 				</section>
@@ -90,18 +94,20 @@
 					<section>
 						<h2>Single Responsibility Principle</h2>
 						<div class="image">	
-							<img height="550" src="img/">
+							<img height="550" src="img/car_cockpit.jpg">
 						</div>
 						<aside class="notes">
 							El principio de única responsabilidad lo que dicta es que cada clase debe tener *una y sólo una* responsabilidad. De esta manera, cuando se produce un error en el código es mucho más fácil ir directamente al punto en el que esta responsabilidad no está cumpliendo su cometido.
 
 							Habitualmente, si una clase es demasiado grande significa que está haciendo más cosas de las que debe, con lo cual el código se debe refactorizar en clases más manejables que sean más fáciles de extender y mantener en el futuro.
+
+							En la foto mostrada, si al girar el volante hacia la izquierda se cambiara automáticamente de marcha, probablemente nos serviría en el caso que estuviéramos en un circuito de carreras oval, pero si luego tuviéramos que reaprovechar el coche para ir a un circuito más tradicional como Montmeló, deberíamos desactivar este comportamiento, haciendo que el software inicial no fuera reutilizable.
 						</aside>
 					</section>
 					<section>
 						<h2>Open-Closed Principle</h2>
 						<div class="image">
-							<img height="550" src="img/">
+							<img src="img/russian_dolls.png">
 						</div>
 						<aside class="notes">
 							Este principio indica que las clases deben estar abiertas a extensión pero cerradas a modificación. Esto quiere decir que lo que no se quiere es modificar el comportamiento estándar de una clase, para que sea más fácil reutilizarla. Si se cambiar el comportamiento, editándolo en lugar de ampliándolo, creamos una colisión entre lo que esperamos que haga esta clase y lo que realmente hace, dificultando en gran medida el solucionar incidencias relacionadas con esta clase o reutilizarla, puesto que ya no sabremos qué hace realmente.
