@@ -7,3 +7,5 @@ Slides para descripción de **metodologías ágiles**, presentadas en Mayo 2013
  * SCRUM
 
 Actualizado hoy
+
+Prueba colisión
